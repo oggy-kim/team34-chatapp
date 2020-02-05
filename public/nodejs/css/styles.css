@@ -1,7 +1,7 @@
 * {
-    padding: 0;
+    padding-bottom: 0;
     box-sizing: border-box;
-    vertical-align: bottom;
+    margin: 0;
 }
 
 html {
@@ -22,11 +22,11 @@ body {
 }
 
 .messages {
-    display: flexbox;
+    display: flex;
 }
 
 .admin-message {
-    margin-bottom: 10px;
+    margin: 15px 0 15px 0;
     text-align: center;
 }
 
@@ -71,57 +71,57 @@ body {
 }
 
 .message__admin {
-    background-color: grey;
+    background-color: rgba(231, 231, 231, 0.5);
     border-radius: 5px;
-    margin: 10px;
     padding: 10px;
     width: 300px;
 }
 
-.send-message {
-    float: right;
-    max-width: 300px;
-    margin-bottom: 2em;
-}
-.send-message > p {
-    line-height: 1.5em;
-}
-
-
-.message__send {
-    background-color: yellow;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
-    width: 300px;
-    clear: right;
+.chat__message {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .chat__message-from-me {
+    justify-content: flex-end;
+  }
+  
+  .chat__message-to-me img {
+    align-self: flex-start;
 }
 
-.receive-message {
-    margin-bottom: 1em;
+.chat__message-time {
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.5);
 }
 
-.receive-pic {
-    border-radius: 50%;
-    float: left;
-    width: 40px;
-    height: 40px;
-}
-
-.message__name {
-    margin: 0 0 0.5em 0;
-}
-
-.message__receive {
-    background-color: white;
-    border-radius: 5px;
-    margin: 10px;
+.chat__message-from-me .chat__message-body {
+    background-color: #ffe934;
     margin-left: 5px;
-    padding: 10px;
-    max-width: 300px;
 }
 
-.message__meta {
-    font-size: 0.5em; 
-}
+.chat__message-body {
+    padding: 10px 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+  }
+  
+  .chat__message-to-me img {
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .chat__message .chat__message-username {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .chat__message-center {
+    display: flex;
+    flex-direction: column;
+  }
+
+
 

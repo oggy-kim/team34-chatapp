@@ -12,6 +12,7 @@ const $todayDate = document.querySelector('#today')
 const adminMessageTemplate = document.querySelector('#adminmessage-template').innerHTML
 const sendMessageTemplate = document.querySelector('#sendmessage-template').innerHTML
 const receiveMessageTemplate = document.querySelector('#receivemessage-template').innerHTML
+const roomnameTemplate = document.querySelector('#roomname-template')
 
 // Options
 const {username, userno, room} = Qs.parse(location.search, {ignoreQueryPrefix: true})
@@ -21,6 +22,7 @@ socket.on('adminMessage', (message) => {
         message: message.text
     })
     $messages.insertAdjacentHTML('beforeend', html)
+    window.scrollTo(0,document.body.scrollHeight)
 })
 
 socket.on('message', (message) => {
@@ -29,16 +31,16 @@ socket.on('message', (message) => {
     if(socket.id === message.id) {
         const html = Mustache.render(sendMessageTemplate, {
             message: message.text,
-            createdAt: moment(message.createdAt).format('hh:mm')
+            createdAt: moment(message.createdAt).format('HH:mm')
         })
         $messages.insertAdjacentHTML('beforeend', html)
         window.scrollTo(0,document.body.scrollHeight)
     } else {
         const html = Mustache.render(receiveMessageTemplate, {
             message: message.text,
-            createdAt: moment(message.createdAt).format('hh:mm'),
+            createdAt: moment(message.createdAt).format('HH:mm'),
             username: message.username,
-            userno: message.userno 
+            userno: message.userno
         })
         $messages.insertAdjacentHTML('beforeend', html)
         window.scrollTo(0,document.body.scrollHeight)
